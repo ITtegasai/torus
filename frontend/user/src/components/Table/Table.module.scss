@@ -1,0 +1,32 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    
+    thead{
+        th{
+            padding: 2rem 1.6rem 0.8rem;
+            white-space: nowrap;
+        }
+        tr{
+            border: 0;
+        }
+    }
+
+    td{
+        padding: 1.6rem;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    tr{
+        border-top: .15rem solid var(--color-light-accent);
+    }
+}
+
+.container{
+    width: 100%;
+    border: .15rem solid var(--color-light-accent);
+    border-radius: 1.2rem;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}

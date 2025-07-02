@@ -1,0 +1,13 @@
+fastapi[all]
+uvicorn
+websocket
+requests
+fastapi-users[sqlalchemy]
+pyjwt
+passlib[bcrypt]
+python-dotenv
+psycopg2-binary
+pytz
+num2words
+pdfkit
+python-dateutil

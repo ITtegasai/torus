@@ -1,0 +1,44 @@
+@use "../../assets/styles/variables";
+
+.btn {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.5rem;
+  min-width: 17.6rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  transition: variables.$animation;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+
+    & :active {
+      transform: scale(1);
+    }
+  }
+}
+
+.primaryBtn {
+  background-color: variables.$color-primary;
+  color: variables.$color-light;
+}
+
+.secondaryBtn {
+  background-color: variables.$color-secondary;
+  color: variables.$color-dark;
+}

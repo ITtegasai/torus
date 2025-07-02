@@ -1,0 +1,99 @@
+@use "../../assets/styles/variables";
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  margin-bottom: 2rem;
+  max-width: 27.4rem;
+  width: 100%;
+  margin-left: auto;
+}
+
+.table {
+  display: grid;
+}
+
+.actionBtn {
+  color: variables.$color-primary;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: auto;
+}
+
+.statusCreated,
+.statusChecking,
+.statusRejected,
+.statusPayed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+
+  span {
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+  }
+}
+
+.acceptBtn,
+.crossBtn{
+  &:disabled {
+    color: #b5d1f2;
+  }
+}
+
+.actionBtn {
+  color: variables.$color-primary;
+  cursor: pointer;
+
+  &:disabled {
+    color: #b5d1f2;
+  }
+}
+
+.pagination {
+  margin-top: auto;
+}
+
+
+
+.acceptBtn_active {
+  color: #34c759;
+}
+
+.crossBtn_active {
+  color: #ff0000;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+}
+
+.modal__actionBtns {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}

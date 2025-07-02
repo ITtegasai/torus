@@ -1,0 +1,61 @@
+@use "../../assets/styles/variables";
+
+.dropDown {
+  width: 100%;
+}
+
+.dropDown__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1.6rem 2rem;
+  border-radius: 1.2rem;
+  background: #c8e1ef;
+  position: relative;
+  z-index: 1;
+  font-size: 1.4rem;
+  user-select: none;
+
+  .icon__arrow {
+    transform: rotateX(180deg);
+    color: #1b24367a;
+    transition: variables.$animation;
+  }
+}
+
+.dropDown__contant {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: variables.$animation;
+  transform: translateY(-50%);
+  position: relative;
+  z-index: 0;
+  opacity: 0;
+
+  ul {
+    overflow: hidden;
+    padding-top: 0rem;
+    transition: variables.$animation;
+    padding-left: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+.dropDown_open {
+  & > .dropDown__contant {
+    grid-template-rows: 1fr;
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  .dropDown__contant ul {
+    padding-top: 1rem;
+  }
+
+  .dropDown__header .icon__arrow {
+    transform: rotateX(0deg);
+  }
+}

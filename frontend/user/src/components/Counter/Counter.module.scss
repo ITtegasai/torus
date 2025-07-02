@@ -1,0 +1,56 @@
+.counter {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+
+  label {
+    color: var(--color-dark);
+    opacity: 0.5;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
+
+.counterContainer {
+  background-color: var(--color-light-accent);
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem;
+
+  input {
+    width: 10rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.4rem;
+    flex: 1;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    padding: 0;
+    color: var(--color-secondary);
+    font-size: 2.4rem;
+    font-weight: 300;
+  }
+}
+
+.errorLabel {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 8px;
+}

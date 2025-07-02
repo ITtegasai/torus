@@ -1,0 +1,43 @@
+.description{
+    font-size: 1.4rem;
+    color: #2B2B2B80;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.inputs{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: .8rem;
+}
+
+.input{
+    width: 100%;
+    aspect-ratio: 1;
+    border: .1rem solid #E8E8E8;
+    border-radius: .6rem;
+    font-size: 3rem;
+    text-align: center;
+    &:focus{
+        outline: .1rem solid var(--color-secondary);
+    }
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.link{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    text-align: center;
+}
+
+

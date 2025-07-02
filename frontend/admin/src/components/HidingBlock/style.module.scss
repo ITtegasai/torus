@@ -1,0 +1,55 @@
+@use "../../assets/styles/variables";
+
+.hidingBlock {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: variables.$color-light-dark;
+  cursor: pointer;
+  width: max-content;
+  user-select: none;
+}
+
+.block {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 0;
+  opacity: 0;
+  margin-top: 0rem;
+  will-change: grid-template-rows;
+
+  &__overlay {
+    overflow: hidden;
+
+    &_visible {
+      overflow: visible;
+    }
+  }
+}
+
+.icon {
+  transform: rotateX(180deg);
+  transition: all 0.2s ease-in-out;
+
+  &__rotate {
+    transform: rotate(0deg);
+  }
+}
+
+.hidingBlock_open {
+  .block {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 3rem;
+  }
+}

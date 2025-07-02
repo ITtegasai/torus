@@ -1,0 +1,13 @@
+@use '../../assets/styles/variables';
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: variables.$color-primary;
+  cursor: pointer;
+  padding: 0.75rem;
+}

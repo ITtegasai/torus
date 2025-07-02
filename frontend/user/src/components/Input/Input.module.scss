@@ -1,0 +1,62 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.label{
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--color-dark);
+}
+
+.input{
+    padding: 1.4rem 2.2rem;
+    flex: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    &:hover, &:focus, &:active{
+        outline: none;
+    }
+
+    &::placeholder{
+        color: var(--color-dark);
+        opacity: 50%;
+    }
+}
+
+.input:disabled{
+    opacity: .2;
+    cursor: not-allowed;
+}
+
+.inputOverlay{
+    border: .1rem solid #E8E8E8;
+    border-radius: .6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.changeVisibilityBtn{
+    height: 100%;
+    padding-right: 1.5rem;
+    
+    svg {
+        color: var(--color-dark);
+        opacity: .5;
+    }
+}
+
+.calendarIcon{
+    height: 100%;
+    padding-right: 1.5rem;
+    
+    svg {
+        color: var(--color-dark);
+        opacity: .5;
+    }
+}
+

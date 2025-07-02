@@ -1,0 +1,51 @@
+@use "../../assets/styles/variables";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: variables.$screen-desctop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: variables.$screen-laptop) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.groupContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-tablet) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  button {
+    width: max-content;
+  }
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: variables.$color-dark;
+  gap: 0.8rem;
+}

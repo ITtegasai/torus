@@ -1,0 +1,7 @@
+fastapi[all]
+fastapi-users[sqlalchemy]
+pyjwt
+passlib[bcrypt]
+python-dotenv
+psycopg2-binary
+pytz

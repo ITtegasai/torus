@@ -1,0 +1,263 @@
+@use "../../variables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.overlay {
+    flex:1;
+    border-bottom: .1rem solid var(--color-grey);
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: variables.$screen-xs) {
+        border: 0;
+    }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "stocks stocks stocks about about"
+    "nav nav nav nav nav"
+    "bottom bottom bottom bottom bottom";
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-lg) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "stocks "
+      "nav"
+      "about"
+      "bottom";
+  }
+}
+
+.stocksProfit,
+.aboutCompany {
+  padding: 3rem;
+  border-radius: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  background-position: right -2rem bottom;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    background-position: right -12rem bottom;
+  }
+
+  @media screen and (max-width: variables.$screen-xs) {
+    background-size: auto 70%;
+    background-position: right -6rem bottom -2rem;
+
+  }
+
+  h5 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    max-width: 21rem;
+  }
+}
+
+.linkBtn {
+  margin-top: auto;
+  color: var(--color-primary);
+}
+
+.stocksProfit {
+  grid-area: stocks;
+  background-color: #62b4ff;
+  background-image: url("../../assets/images/analitics.png");
+}
+
+.aboutCompany {
+  grid-area: about;
+  background-color: var(--color-secondary);
+  background-image: url("../../assets/images/about.png");
+}
+
+.nav {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: variables.$screen-xs) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.navItem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1.6rem;
+  border-radius: 1.8rem;
+  gap: 1.2rem;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    height: 110px;
+  }
+
+  &:nth-child(1) {
+    background-color: #5eb7f8;
+  }
+
+  &:nth-child(2) {
+    background-color: #50a1db;
+  }
+
+  &:nth-child(3) {
+    background-color: #578bd8;
+  }
+
+  &:nth-child(4) {
+    background-color: #4d76b3;
+  }
+}
+
+.navImage {
+  height: 4.6rem;
+  padding: 1rem;
+  background-color: #ffffff47;
+  border-radius: 1rem;
+  color: var(--color-primary);
+}
+
+.navItemTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 0.5rem;
+}
+
+.navItemDescr {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.navItemRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  grid-area: bottom;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 1.8rem;
+    background-color: var(--color-primary);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto 80%;
+    gap: 1rem;
+
+    @media screen and (max-width: variables.$screen-xxl) {
+      background-position: right -2rem bottom;
+    }
+
+    @media screen and (max-width: variables.$screen-xl) {
+      background-position: right bottom;
+    }
+
+    h5 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.4rem;
+      opacity: 0.6;
+      max-width: 22.8rem;
+
+      @media screen and (max-width: variables.$screen-xxl) {
+        font-size: 1.2rem;
+        max-width: 18.8rem;
+      }
+    }
+
+    span {
+      font-size: 1.2rem;
+      opacity: 0.4;
+      max-width: 22.8rem;
+
+      @media screen and (max-width: variables.$screen-xxl) {
+        font-size: 1rem;
+        max-width: 18.8rem;
+      }
+    }
+
+    &:nth-child(1) {
+      background-image: url("../../assets/images/back.png");
+    }
+
+    &:nth-child(2) {
+      background-image: url("../../assets/images/devices.png");
+    }
+
+    &:nth-child(3) {
+      background-image: url("../../assets/images/pot.png");
+    }
+  }
+}
+
+
+.footer {
+    padding-top: 1.8rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @media screen and (max-width: variables.$screen-xs) {
+        flex-direction: column;
+    }
+}
+
+.footerLogo {
+    width: 8.4rem;
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .6rem;
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+    }
+}

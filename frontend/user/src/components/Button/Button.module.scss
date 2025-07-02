@@ -1,0 +1,37 @@
+.button {
+    padding: 1.1rem;
+    border-radius: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 100%;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+.buttonPrimary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.buttonSecondary{
+    background-color: transparent;
+    outline: .1rem solid #F1F1F1;
+    color: var(--color-primary);
+
+    svg {
+        color: var(--color-dark);
+    }
+}
+
+.buttonOutlined{
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+}

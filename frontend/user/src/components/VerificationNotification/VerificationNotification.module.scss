@@ -1,0 +1,61 @@
+@use '../../variables';
+
+.verification{
+    width: 100%;
+    padding: 2rem 2.4rem;
+    background-color: var(--color-secondary);
+    justify-content: flex-end;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    right: 0;
+    top:0;
+    transition: all .2s ease-in-out;
+
+    @media screen and (max-width: variables.$screen-xl) {
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: variables.$screen-xs) {
+        flex-direction: column;
+    }
+}
+
+.verificationClosed{
+    right: -100vw;
+}
+
+.description{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    width: 160px;
+
+    @media screen and (max-width: variables.$screen-xs) {
+        text-align: center;
+    }
+}
+
+.btnGroup {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    button {
+        width: 145px;
+    }
+
+    @media screen and (max-width: variables.$screen-xs) {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        button {
+            width: 100%;
+        }
+
+    }
+
+    @media screen and (max-width: 460px) {
+       grid-template-columns: 1fr;
+    }
+}

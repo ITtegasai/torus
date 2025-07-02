@@ -1,0 +1,65 @@
+.stocksPerchase {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-primary);
+  border-radius: 1.8rem;
+  overflow: hidden;
+
+  &_one {
+    grid-area: one-package;
+  }
+
+  &_package {
+    grid-area: all-package;
+  }
+
+  &_part {
+    grid-area: part-package;
+  }
+}
+
+.stocksPerchaseHeader {
+  width: 100%;
+  height: 122px;
+  background-image: url("../../assets/images/gradient-bg.png");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  h5 {
+    padding-left: 2.4rem;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-light-accent);
+    width: 19.4rem;
+    z-index: 1;
+  }
+}
+
+.stocksPerchaseHeaderImage {
+  position: absolute;
+  object-fit: contain;
+  height: 100%;
+  right: 0;
+}
+
+.stocksPerchaseContent {
+  padding: 2.4rem;
+}
+
+.stocksPerchaseTitle {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.stocksPerchaseActions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2.4rem;
+}

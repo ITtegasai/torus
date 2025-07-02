@@ -1,0 +1,30 @@
+@use '../../variables';
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    width: 100%;
+    background-color: #F1F1F1;
+    @media screen and (max-width: variables.$screen-md) {
+        padding: 0;
+    }
+}
+
+.mainContent{
+    height: calc(100% - 69px);
+    width: 100%;
+    padding: 3rem;
+    padding-top: 2rem;
+    overflow: hidden;
+    overflow-y: auto;
+
+    @media screen and (max-width: variables.$screen-md) {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+}

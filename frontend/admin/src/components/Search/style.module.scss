@@ -1,0 +1,24 @@
+@use '../../assets/styles/variables';
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: .1rem solid variables.$color-grey;
+
+    &__btn {
+        color: variables.$color-grey;
+        transition: all .2s ease-in-out;
+    }
+
+    &__input {
+        outline: 0;
+        border:0;
+        flex:1;
+
+        &:not(:placeholder-shown) + label button {
+            color: variables.$color-primary;
+        }
+    }
+}

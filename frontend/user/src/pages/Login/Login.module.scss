@@ -1,0 +1,43 @@
+.description{
+    font-size: 1.4rem;
+    color: #2B2B2B80;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.link{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+}
+
+.control{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .8rem;
+    justify-content: center;
+
+    p{
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: var(--color-dark);
+    }
+}

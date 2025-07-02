@@ -1,0 +1,105 @@
+@use "../../assets/styles/variables";
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  margin-bottom: 2rem;
+  width: 27.4rem;
+  margin-left: auto;
+}
+
+.table {
+  display: grid;
+}
+
+.actionBtn {
+  color: variables.$color-primary;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: auto;
+}
+
+.acceptBtn,
+.crossBtn {
+  color: #b5d1f2;
+  cursor: pointer;
+}
+
+.actionBtn {
+  &:disabled {
+    color: #b5d1f2;
+  }
+}
+.acceptBtn_active {
+  color: #34c759;
+}
+
+.crossBtn_active {
+  color: #ff0000;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 280px));
+  gap: 2rem;
+  column-gap: 7rem;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: variables.$screen-tablet) {
+    column-gap: 2rem;
+  }
+
+  @media screen and (max-width: variables.$screen-mobile) {
+    grid-template-columns: minmax(0px, 1fr);
+  }
+}
+
+.formAction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-tablet) {
+    flex-direction: column;
+  }
+}
+
+.modalTitle {
+  font-size: 2.8rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.docsActions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 7rem;
+
+  button {
+    color: variables.$color-primary;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,121 @@
+@use "../../variables";
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-content: center;
+  justify-content: center;
+  backdrop-filter: blur(1rem);
+  z-index: 12;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+
+  &_right {
+    align-content: stretch;
+
+    .modalContainer {
+      margin-left: auto;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      scrollbar-gutter: auto;
+    }
+
+    .modal {
+      margin: 0;
+      margin-left: auto;
+      transform: translateX(6rem);
+      height: 100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-top: 4rem;
+    }
+
+    .btnClose {
+      top: 1rem;
+      right: 1rem;
+      color: var(--color-grey);
+    }
+  }
+
+  @media screen and (max-width: variables.$screen-xs) {
+    align-content: stretch;
+  }
+}
+
+.modal {
+  transition: all 0.2s ease-in-out;
+  padding: 2rem 3.7rem;
+  border-radius: 1.8rem;
+  background-color: var(--color-primary);
+  position: relative;
+  width: 46rem;
+  margin: 0 auto;
+  transform: translateY(-2rem);
+
+  &_big {
+    max-width: 75rem;
+    width: 100%;
+  }
+
+  @media screen and (max-width: variables.$screen-xs) {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+  }
+}
+
+.btnClose {
+  color: var(--color-primary);
+  position: absolute;
+  right: -3rem;
+  top: -2rem;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    right: 0.7rem;
+    top: 1rem;
+    color: var(--color-dark);
+  }
+
+  svg {
+    transform: scale(1.2);
+  }
+}
+
+.openModal {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+
+  .modal {
+    transform: translateY(0rem);
+  }
+}
+
+.modalContainer {
+  padding: 3rem 0;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    overflow: hidden;
+    padding: 0;
+    scrollbar-gutter: auto;
+  }
+}

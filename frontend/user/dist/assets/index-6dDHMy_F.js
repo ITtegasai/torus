@@ -1,0 +1,1 @@
+import{r as e,j as o}from"./index-CxNXazyc.js";function a(){const[n,r]=e.useState("");return e.useEffect(()=>{fetch("/invst.html").then(t=>t.text()).then(t=>r(t)).catch(t=>console.error("Error loading HTML:",t))},[]),o.jsx("div",{dangerouslySetInnerHTML:{__html:n}})}export{a as default};

@@ -1,0 +1,231 @@
+@use "../../variables";
+
+.container {
+  padding: 3.2rem;
+  border-radius: 1.8rem;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.header {
+  margin-bottom: 2.4rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-rows: auto;
+  transition: all 0.2s ease-in-out;
+  gap: 1rem;
+  width: 100%;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    margin-bottom:0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 85px;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: variables.$screen-xs) {
+    grid-template-rows: auto 120px;
+  }
+
+  @media screen and (max-width: 460px) {
+    grid-template-rows: auto 185px;
+  }
+}
+
+.notVerificatedHeader {
+  grid-template-rows: auto;
+  margin-bottom: 2.4rem;
+}
+
+.verification {
+  position: relative;
+  display: grid;
+  grid-template-columns: 520px;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  @media screen and (max-width: variables.$screen-xl) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.verificationClosed {
+  grid-template-rows: auto;
+  gap: 0px;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    grid-template-rows: auto 0px;
+    gap: 0px;
+  }
+
+  .verification {
+    opacity: 0;
+  }
+}
+
+.main {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.infoFields {
+  display: grid;
+  grid-template-columns: 202px 0.5fr;
+  align-items: center;
+  gap: 2rem;
+
+  @media screen and (max-width: variables.$screen-lg) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.infoFieldsLabel {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  span {
+    color: var(--color-secondary);
+  }
+
+  @media screen and (max-width: variables.$screen-lg) {
+    margin-top: 1rem;
+    margin-bottom: -0.5rem;
+  }
+}
+
+.inputFieldsRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.info {
+  padding-bottom: 4rem;
+  border-bottom: 0.1rem solid #e8e8e8;
+  margin-bottom: 4rem;
+}
+
+.changeMailBtn {
+  color: var(--color-dark);
+}
+
+.inputFieldBtn {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.headerVerification {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  width: 100%;
+
+  @media screen and (max-width: variables.$screen-lg) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.verificationStatus {
+  padding: 1.5rem 1.7rem;
+  border-radius: 1.2rem;
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.verificationStatusPending {
+  background-color: #f1bc00;
+}
+
+.verificationStatusDone {
+  background-color: #61cd4f;
+}
+
+.verificationForm {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 9rem;
+
+  @media screen and (max-width: variables.$screen-lg) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.verificationFormStep {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.verificationStepTitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.verificationStepDescr {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.endBtn {
+  @media screen and (max-width: variables.$screen-xs) {
+    width: 100%;
+  }
+}
+
+.container__noGap {
+   gap: 0rem;
+}
+
+.needVerification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.needVerification__title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.needVerification__descr {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}

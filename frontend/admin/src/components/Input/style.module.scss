@@ -1,0 +1,71 @@
+@use "../../assets/styles/variables";
+
+.customInput {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: variables.$color-dark;
+  gap: 0.8rem;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input {
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    border: 0.1rem solid variables.$color-grey;
+    width: 100%;
+
+    &:disabled {
+      color: variables.$color-dark;
+      background-color: variables.$color-grey;
+
+      &::placeholder {
+        color: variables.$color-dark;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      border: 0.1rem solid variables.$color-primary;
+    }
+
+    &::-webkit-input-placeholder {
+      color: variables.$color-grey;
+    }
+
+    &:-moz-placeholder {
+      color: variables.$color-grey;
+      opacity: 1;
+    }
+
+    &::-moz-placeholder {
+      color: variables.$color-grey;
+      opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+      color: variables.$color-grey;
+    }
+
+    &::-ms-input-placeholder {
+      color: variables.$color-grey;
+    }
+
+    &::placeholder {
+      color: variables.$color-grey;
+    }
+  }
+}

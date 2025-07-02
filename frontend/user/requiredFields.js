@@ -1,0 +1,1 @@
+export default ['first_name','username','birthday', 'passport_date', 'passport_number', 'registration', 'phone', 'telegram']

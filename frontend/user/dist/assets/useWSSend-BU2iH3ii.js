@@ -1,0 +1,1 @@
+import{r as a,W as o}from"./index-CxNXazyc.js";function i(){const{ws:t,isReady:r,WSParams:n}=a.useContext(o);return(s,e)=>{!t||!r||(n.current=e,t.send(JSON.stringify({data:{page:s,...e}})))}}export{i as u};

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        :root {
+            --html-color-primary: #5887f2;
+            --html-color-secondary: #ffffff;
+            --html-color-primary-light: #ecf7ff;
+        }
+    
+        .html__title {
+            font-size: 2.4rem;
+            font-weight: 500;
+            line-height: 2.4rem;
+        }
+    
+        .html__title_small {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 2.4rem;
+        }
+    
+        .html__text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 2.4rem;
+        }
+    
+        .html__text_bold {
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 2.4rem;
+        }
+    
+        .html__mb-12 {
+            margin-bottom: 1.2rem;
+        }
+    
+        .html__mb-24 {
+            margin-bottom: 2.4rem;
+        }
+    
+        .html__mb-32 {
+            margin-bottom: 3.2rem;
+        }
+    
+        .html__mb-56 {
+            margin-bottom: 5.6rem;
+        }
+    
+        .html__ul {
+            margin: 0;
+            list-style-type: none;
+        }
+    
+        .html__ul>li:before {
+            content: "-";
+            text-indent: -5px;
+        }
+    
+        .html__ol {
+            padding-left: 2rem;
+        }
+    
+        .html__banner {
+            background-color: #62b4ff;
+            border-radius: 1.8rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2.8rem 4rem;
+            align-items: flex-start;
+            position: relative;
+        }
+    
+        .html__banner h5 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--html-color-secondary);
+            z-index: 1;
+        }
+    
+        .html__banner a {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 500;
+            background-color: var(--html-color-secondary);
+            padding: 1.2rem 3.8rem;
+            border-radius: 0.6rem;
+            z-index: 1;
+        }
+    
+        .html__banner-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
+    
+        @media screen and (max-width: 1100px) {
+            .html__banner-img {
+                display: none;
+            }
+        }
+    
+        @media screen and (max-width: 576px) {
+            .html__title {
+                font-size: 1.6rem;
+            }
+    
+            .html__title_small {
+                font-size: 1.2rem;
+            }
+    
+            .html__text {
+                font-size: 1.2rem;
+            }
+    
+            .html__text_bold {
+                font-size: 1.2rem;
+            }
+    
+            .html__banner h5 {
+                font-size: 1.8rem;
+            }
+    
+            .html__banner a {
+                font-size: 1.2rem;
+                padding: 0.6rem 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div>
+        <div class="html__banner html__mb-32">
+            <h5 class="html__mb-24">Записаться на собеседование</h5>
+            <div class="html__banner-left">
+                <a href="mailto:dariastreltsova@bk.ru?subject=Резюме&body=Здравствуйте, прикладываю резюме.">Отправить резюме</a>
+            </div>
+            <img class="html__banner-img" alt=""
+                src="data:image/png;base64,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" />
+        </div>
+        <p class="html__text">
+            Присоединяйтесь к нашей команде и станьте частью компании, которая активно
+            развивает социальное предпринимательство в России. Мы предлагаем уникальные
+            возможности для профессионального и личностного роста в сферах, которые
+            действительно имеют значение.
+        </p>
+        <h6 class="html__text_bold">Наши преимущества:</h6>
+        <ol class="html__ol">
+            <li class="html__text">
+                Стабильные выплаты: Мы ценим ваш труд и гарантируем своевременные выплаты,
+                обеспечивая финансовую стабильность и уверенность в завтрашнем дне.
+            </li>
+            <li class="html__text">
+                Эффективная коммуникация: В нашей компании вы найдете открытую и
+                прозрачную систему общения, где ваше мнение будет услышано и учтено.
+            </li>
+            <li class="html__text">
+                Свобода слова и действий: Мы поддерживаем инициативу и креативность,
+                предоставляя свободу для реализации ваших идей и проектов
+            </li>
+            <li class="html__text">
+                Вклад в общество и экологию: Работая с нами, вы будете участвовать в
+                проектах, направленных на улучшение качества жизни людей и заботу об
+                окружающей среде
+            </li>
+            <li class="html__text">
+                Разнообразие проектов: У нас вы сможете развивать свои навыки в различных
+                направлениях, от трейдинга зерновыми культурами до инновационных
+                экологических решений.
+            </li>
+        </ol>
+        <p class="html__text html__mb-32">
+            Присоединяйтесь к OOO "Торус Групп" и помогите нам превращать мечты в
+            действующие проекты!
+        </p>
+        <h5 class="html__title html__mb-12">Трудоустройство</h5>
+        <p class="html__text html__mb-24">
+            Не обязательно открывать свой бизнес или становиться предпринимателем, чтобы
+            достичь успеха и развивать свое дело. Вы можете стать совладельцем нашего
+            холдинга и работать в нашей компании, принося двойную пользу. Или просто
+            устроиться к нам на одну из вакансий
+        </p>
+        <h6 class="html__text_bold">Сейчас у нас есть две тенденции:</h6>
+        <p class="html__text html__mb-24">
+            1. Сначала люди становятся совладельцами, а потом усиливают компанию своими
+            компетенциями и занимают вакантную должность:<br />
+            Геннадий Лукьянов (курьер),<br />
+            Дмитрий Лелеко (главный специалист IT отдела),<br />
+            Олег Ревин (начальник производства Торус Техно)
+        </p>
+        <p class="html__text html__mb-24">
+            2. Сотрудники принимают решение стать совладельцами ТФГ:<br />
+            Сергей Манько (руководитель Торус Агро и Торус Транс),<br />
+            Татьяна Морозова (директор по развитию ZAKAZOOM),<br />
+            Сергей Докучаев (руководитель маркетингого отдела ZAKAZOOM)
+        </p>
+        <p class="html__text html__mb-24">Мы отдаем предпочтение нашим совладельцам, потому что именно они -
+            заинтересованные люди и могут максимально способствовать прибыли и развитию компании.У нас открыто множество
+            вакансий!</p>
+        <h6 class="html__text_bold">Ищем сотрудников:</h6>
+        <ul class="html__ul">
+            <li class="html__text">на производство полуприцепов</li>
+            <li class="html__text">в дарксторы</li>
+            <li class="html__text">на офисные позиции</li>
+        </ul>
+        <p class="html__text html__mb-32">Наша компания — это надежность и стабильность. Мы развиваемся, выплачиваем
+            заработную плату вовремя и предлагаем заработок выше рынка.Мы также прислушиваемся ко всем нашим сотрудникам:
+            если вы просто курьер и у вас есть идеи по улучшению — мы всегда готовы их выслушать и внедрить! Хотите узнать
+            больше о вакансиях? Смотрите по ссылке!</p>
+        <h5 class="html__title">
+            Не забывайте про акцию «Приведи друга»!
+        </h5>
+        <p class="html__text">Давайте контакт Таисии, нашего HR, напрямую, и после обращения вашего друга вам будут
+            начислены бонусы.</p>
+        <p class="html__text">Давайте вместе строить успешное будущее с ТОРУС ГРУПП</p>
+        <h6 class="html__text_bold">ПРИВЕДИ ДРУГА, получи вознаграждение</h6>
+        <p class="html__text">Напоминаем, что за рекомендацию друзьям вы можете получить вознаграждение.</p>
+        <p class="html__text">Просто поделитесь информацией о наших открытых вакансиях с вашими друзьями, и за каждого
+            кандидата, который останется с нами, мы вознаградим вас!</p>
+        <h6 class="html__text_bold">Как это работает:</h6>
+        <ul class="html__mb-32 html__ul">
+            <li class="html__text">Когда ваш друг успешно пройдет 5-дневную стажировку у нас, вы получите 2000 рублей!</li>
+            <li class="html__text">Когда ваш друг успешно завершит трехмесячный испытательный срок, вы получите еще 3000
+                рублей!</li>
+        </ul>
+        <p class="html__text">Это прекрасная возможность помочь своим друзьям найти интересную работу и заработать при этом
+            самим!</p>
+        <p class="html__text">Присылайте контакты ваших друзей с релевантным опытом работы по вакансиям нашему HR-менеджеру
+            Таисии по номеру +7989-230-81-16</p>
+        <p class="html__text">Если вы хотите сотрудничать, но не увидели вакансию в списке - пишите Таисии с предложением
+            своих услуг или профессиональных навыков</p>
+        <p class="html__text">Давайте прямой контакт Таисии друзьям, чтобы закрепить бонусы. За отклики с hh мы не можем
+            начислить вознаграждение, так как несем расходы за работу сервиса.</p>
+        <p class="html__text">Помните, что главное в ТФГ это люди. Именно мы строим и масштабируем бизнес. Объединяйте
+            друзей вокруг своей компании и вместе мы точно станем сильнее!</p>
+    </div>
+</body>
+</html>

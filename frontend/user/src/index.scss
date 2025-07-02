@@ -1,0 +1,130 @@
+:root {
+  --color-dark: #11181f;
+  --color-primary: #ffffff;
+  --color-accent: #8fc4e8;
+  --color-secondary: #5887f2;
+  --color-light-accent: #f4f7ff;
+  --color-grey: #A9A9A9;
+  --color-light-grey: #E8E8E8;
+  --color-green: #3CC13B;
+  --color-red:#F03738;
+  --color-yellow: #F3BB1C;
+  --color-light-secondary: #E7EBFC;
+  --color-light-third:#ECF7FF;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-300.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-400.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-500.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("./assets/fonts/Jost-600.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Jost", sans-serif;
+  line-height: 1.25;
+}
+
+input,
+button {
+  font-family: "Jost", sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+
+  @media (hover: none) {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+.Toastify__toast-body {
+  font-size: 1.4rem;
+}
+
+.error {
+  color: red;
+}

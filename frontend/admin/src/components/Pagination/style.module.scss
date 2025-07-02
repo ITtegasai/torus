@@ -1,0 +1,45 @@
+@use '../../assets/styles/variables';
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+
+    @media screen and (max-width: variables.$screen-mobile) {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    &__perPage {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__perPageTitle {
+        font-size: 1.2rem;
+        color: variables.$color-light-dark;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        font-size: 1.2rem;
+    }
+
+    &__actionBtns {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+
+        button {
+            cursor: pointer;
+        }
+    }
+}

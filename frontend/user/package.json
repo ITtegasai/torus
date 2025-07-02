@@ -1,0 +1,50 @@
+{
+  "name": "my-react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "browser-image-compression": "^2.0.2",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
+    "heic-to": "^1.1.11",
+    "jspdf": "^2.5.2",
+    "konva": "^9.3.16",
+    "react": "^18.3.1",
+    "react-content-loader": "^7.0.2",
+    "react-cookie": "^7.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-d3-tree": "^3.6.2",
+    "react-dom": "^18.3.1",
+    "react-konva": "^18.2.10",
+    "react-router-dom": "^6.26.1",
+    "react-slider": "^2.0.6",
+    "react-toastify": "^10.0.5",
+    "react-window": "^1.8.10",
+    "sass": "^1.78.0",
+    "use-image": "^1.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.5.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.15.0",
+    "prettier": "^3.5.3",
+    "vite": "^5.4.1"
+  }
+}

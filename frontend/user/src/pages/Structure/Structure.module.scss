@@ -1,0 +1,226 @@
+@use "../../variables";
+
+.overlay {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.container {
+  min-height: calc(100vh - 9.8rem);
+  border-radius: 1.8rem;
+  background-color: var(--color-primary);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: max-content;
+  overflow-x: hidden;
+}
+
+.controlPanel {
+  padding: 3.2rem;
+  width: 100%;
+  border-bottom: 0.1rem solid var(--color-grey);
+}
+
+.chooseStructureType {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+
+  h5 {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  svg {
+    color: var(--color-grey);
+  }
+}
+
+.tableContainer {
+  display: grid;
+  padding: 2rem;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+}
+
+.actionBtn {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.volume {
+  display: grid; /* Используем Grid */
+  grid-template-columns: repeat(5, minmax(260px, 1fr));
+  grid-auto-flow: column;
+  margin-bottom: 2rem;
+  gap: 0.7rem;
+  overflow-x: auto;
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+
+  @media screen and (min-width: variables.$screen-md) {
+    width: calc(100% + 6rem);
+    margin-left: -3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  &__item {
+    white-space: nowrap;
+    padding: 1.7rem 2.4rem;
+    border-radius: 1.8rem;
+    background-image: url("../../assets/images/divident-bg.png");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: auto 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    background-color: #d5edfe;
+
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.valumeSmall {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  &__item {
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.8rem;
+    background-color: var(--color-light-secondary);
+    color: var(--color-secondary);
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+.reffLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  &__label {
+    font-size: 1.4rem;
+    color: var(--color-grey);
+    flex: 1;
+    white-space: nowrap;
+
+    @media screen and (max-width: variables.$screen-xl) {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: variables.$screen-lg) {
+    align-items: flex-end;
+  }
+
+  &__link {
+    box-shadow: 0px 8px 50px 0px #00000014;
+
+    padding: 1.4rem;
+    max-width: 20rem;
+    width: 100%;
+    background-color: var(--color-primary);
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @media screen and (max-width: variables.$screen-xl) {
+      padding: 0.7rem;
+      font-size: 1.2rem;
+      max-width: 15rem;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    @media screen and (max-width: variables.$screen-xl) {
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: flex-start;
+    }
+  }
+
+  &__actionBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: var(--color-secondary);
+    border-radius: 0.8rem;
+    color: var(--color-primary);
+
+    @media screen and (max-width: variables.$screen-lg) {
+      width: 3.3rem;
+      height: 3.3rem;
+    }
+  }
+}
+
+.shareLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.shareLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-dark);
+  font-size: 2rem;
+  border-radius: 12px;
+  border: 0.1rem solid var(--color-grey);
+  padding: 1rem;
+  justify-content: center;
+}
+
+.tabsRefContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media screen and (max-width: variables.$screen-lg) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

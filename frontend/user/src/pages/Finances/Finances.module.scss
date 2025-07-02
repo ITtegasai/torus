@@ -1,0 +1,277 @@
+@use "../../variables";
+
+.container {
+  padding: 3.2rem;
+  border-radius: 1.8rem;
+  background-color: var(--color-primary);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+
+  @media screen and (max-width: variables.$screen-xs) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.table {
+  display: grid;
+}
+
+.tableTitle {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--color-dark);
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    color: var(--color-secondary);
+  }
+}
+
+.actionBtn {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+}
+
+.statusCreated,
+.statusChecking,
+.statusRejected,
+.statusPayed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+
+  span {
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+  }
+}
+
+.statusCreated {
+  color: var(--color-yellow);
+
+  span {
+    background-color: var(--color-yellow);
+  }
+}
+
+.statusChecking {
+  color: var(--color-yellow);
+
+  span {
+    background-color: var(--color-yellow);
+  }
+}
+
+.statusRejected {
+  color: var(--color-red);
+
+  span {
+    background-color: var(--color-red);
+  }
+}
+
+.statusPayed {
+  color: var(--color-green);
+
+  span {
+    background-color: var(--color-green);
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modalTitle {
+  width: 100%;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.twoFields {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: stretch;
+}
+
+.modalImageLoader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  height: 0.5rem;
+  position: relative;
+}
+
+.slider__track {
+  background-color: var(--color-light-secondary);
+  height: 100%;
+}
+
+.slider__label {
+  position: absolute;
+  top: -2rem;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-grey);
+}
+
+.slider__thumb {
+  height: 1.4rem;
+  width: 1.4rem;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: -5px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+
+  &::after {
+    content: "";
+    height: 0.6rem;
+    width: 0.6rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+  }
+}
+
+.slider__trackBetween {
+  background-color: var(--color-secondary);
+  margin-left: 0.5rem;
+}
+
+.useFilterBtn {
+  margin-top: auto;
+}
+
+.filterModalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.filterModal__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.infoTabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.financesInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.readyToGet {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 45.8rem;
+  width: 100%;
+  padding: 1.7rem 2.4rem;
+  background-color: var(--color-light-third);
+  border-radius: 1.8rem;
+
+  @media screen and (max-width: variables.$screen-xl) {
+    align-self: flex-start;
+    max-width: 100%;
+  }
+
+  &__leftPart {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &__sum {
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+
+  button {
+    width: 12rem;
+  }
+}
+
+.rowBtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5rem;
+}
+
+.cancelBtn {
+  color: var(--color-red);
+}

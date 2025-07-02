@@ -1,0 +1,10 @@
+@use "../../assets/styles/variables";
+
+.customSelect {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #787878;
+  gap: 0.8rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid variables.$color-grey;
+}
