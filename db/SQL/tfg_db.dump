@@ -1,0 +1,711 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.9
+-- Dumped by pg_dump version 16.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: four
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO four;
+
+--
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: bonuses; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.bonuses (
+    id integer NOT NULL,
+    amount numeric DEFAULT 0 NOT NULL,
+    percent bigint DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.bonuses OWNER TO four;
+
+--
+-- Name: bonuses_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.bonuses_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.bonuses_id_seq OWNER TO four;
+
+--
+-- Name: bonuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.bonuses_id_seq OWNED BY public.bonuses.id;
+
+
+--
+-- Name: bsc_chain; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.bsc_chain (
+    id integer NOT NULL,
+    tx_hash character varying DEFAULT ''::character varying NOT NULL,
+    contract_address character varying DEFAULT ''::character varying NOT NULL,
+    data text DEFAULT ''::text NOT NULL,
+    "blockNumber" numeric DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.bsc_chain OWNER TO four;
+
+--
+-- Name: finances; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.finances (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    package_id integer NOT NULL,
+    package_count numeric NOT NULL,
+    package_price numeric NOT NULL
+);
+
+
+ALTER TABLE public.finances OWNER TO four;
+
+--
+-- Name: finanses_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.finanses_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.finanses_id_seq OWNER TO four;
+
+--
+-- Name: finanses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.finanses_id_seq OWNED BY public.finances.id;
+
+
+--
+-- Name: messagestexts; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.messagestexts (
+    id integer NOT NULL,
+    const character varying(255) NOT NULL,
+    ru text NOT NULL,
+    en text
+);
+
+
+ALTER TABLE public.messagestexts OWNER TO four;
+
+--
+-- Name: news; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.news (
+    id integer NOT NULL,
+    name character varying,
+    short_description text,
+    full_description text,
+    date timestamp without time zone,
+    date_create timestamp without time zone,
+    date_end timestamp without time zone,
+    active boolean DEFAULT false
+);
+
+
+ALTER TABLE public.news OWNER TO four;
+
+--
+-- Name: packages; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.packages (
+    id integer NOT NULL,
+    uid character varying,
+    price numeric,
+    min_count numeric,
+    all_count numeric,
+    bonus boolean DEFAULT false
+);
+
+
+ALTER TABLE public.packages OWNER TO four;
+
+--
+-- Name: packages_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.packages_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.packages_id_seq OWNER TO four;
+
+--
+-- Name: packages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.packages_id_seq OWNED BY public.packages.id;
+
+
+--
+-- Name: qualifications; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.qualifications (
+    id integer NOT NULL,
+    qualification character varying NOT NULL,
+    is_verified boolean DEFAULT false NOT NULL,
+    lo numeric DEFAULT 0.00 NOT NULL,
+    lb numeric DEFAULT 0.00 NOT NULL,
+    go numeric DEFAULT 0.00 NOT NULL,
+    parthners character varying DEFAULT '{}'::character varying NOT NULL,
+    or_in character varying DEFAULT 'null'::character varying,
+    line_bonus character varying DEFAULT '{}'::character varying NOT NULL
+);
+
+
+ALTER TABLE public.qualifications OWNER TO four;
+
+--
+-- Name: texts; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.texts (
+    const character varying(255),
+    ru text,
+    en text,
+    component character varying,
+    id integer NOT NULL,
+    dog_id bigint DEFAULT 0
+);
+
+
+ALTER TABLE public.texts OWNER TO four;
+
+--
+-- Name: TABLE texts; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON TABLE public.texts IS '1';
+
+
+--
+-- Name: texts_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.texts_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.texts_id_seq OWNER TO four;
+
+--
+-- Name: texts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.texts_id_seq OWNED BY public.texts.id;
+
+
+--
+-- Name: transactions; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.transactions (
+    id integer NOT NULL,
+    tx_hash character varying(255) NOT NULL,
+    status integer DEFAULT 0 NOT NULL,
+    type integer,
+    user_id integer NOT NULL,
+    create_at timestamp without time zone NOT NULL,
+    update_at timestamp without time zone,
+    pending_at timestamp without time zone,
+    amount numeric DEFAULT 0 NOT NULL,
+    package_id integer NOT NULL,
+    price numeric DEFAULT 1 NOT NULL,
+    fixed boolean DEFAULT false NOT NULL,
+    installment boolean DEFAULT false NOT NULL,
+    initiator_id character varying,
+    bonus_type integer DEFAULT 0,
+    buy_type integer DEFAULT 0,
+    is_withdrawal boolean DEFAULT false,
+    dog_id bigint DEFAULT 0
+);
+
+
+ALTER TABLE public.transactions OWNER TO four;
+
+--
+-- Name: COLUMN transactions.status; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON COLUMN public.transactions.status IS '0 - created, 1 - pending, 2 - rejected, 3 - confirmed';
+
+
+--
+-- Name: COLUMN transactions.type; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON COLUMN public.transactions.type IS '0 - payment, 1 - withdrawal, 2 - dividends';
+
+
+--
+-- Name: COLUMN transactions.buy_type; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON COLUMN public.transactions.buy_type IS '0 - покупка акции, 1 - покупка за сумму, 2 - покупка пакета, 3 - рассрочка';
+
+
+--
+-- Name: transactions_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.transactions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.transactions_id_seq OWNER TO four;
+
+--
+-- Name: transactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.transactions_id_seq OWNED BY public.transactions.id;
+
+
+--
+-- Name: translationtexts_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.translationtexts_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.translationtexts_id_seq OWNER TO four;
+
+--
+-- Name: translationtexts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.translationtexts_id_seq OWNED BY public.messagestexts.id;
+
+
+--
+-- Name: untitled_table_192_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.untitled_table_192_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.untitled_table_192_id_seq OWNER TO four;
+
+--
+-- Name: untitled_table_192_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.untitled_table_192_id_seq OWNED BY public.qualifications.id;
+
+
+--
+-- Name: untitled_table_194_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.untitled_table_194_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.untitled_table_194_id_seq OWNER TO four;
+
+--
+-- Name: untitled_table_194_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.untitled_table_194_id_seq OWNED BY public.news.id;
+
+
+--
+-- Name: untitled_table_195_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.untitled_table_195_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.untitled_table_195_id_seq OWNER TO four;
+
+--
+-- Name: untitled_table_195_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.untitled_table_195_id_seq OWNED BY public.bsc_chain.id;
+
+
+--
+-- Name: user_data; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.user_data (
+    id integer NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    city character varying,
+    birthday timestamp without time zone,
+    reffer_id integer,
+    user_id integer NOT NULL,
+    referal_link character varying(255) DEFAULT NULL::character varying,
+    language character varying(16) DEFAULT 'ru'::character varying NOT NULL,
+    middle_name character varying,
+    profession character varying,
+    phone character varying,
+    telegram character varying,
+    photo character varying,
+    education character varying,
+    registration character varying,
+    passport_number character varying,
+    passport_date timestamp without time zone
+);
+
+
+ALTER TABLE public.user_data OWNER TO four;
+
+--
+-- Name: user_data_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.user_data_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.user_data_id_seq OWNER TO four;
+
+--
+-- Name: user_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.user_data_id_seq OWNED BY public.user_data.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: four
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    uid character varying(255) NOT NULL,
+    username character varying(50) NOT NULL,
+    pass_hash character varying(255) NOT NULL,
+    role integer DEFAULT 0 NOT NULL,
+    email character varying(255) NOT NULL,
+    is_online boolean DEFAULT false NOT NULL,
+    verify_code integer,
+    verified boolean DEFAULT false NOT NULL,
+    attempts integer DEFAULT 3 NOT NULL,
+    activity boolean DEFAULT true,
+    qualification integer,
+    structure text,
+    my_structure character varying DEFAULT ''::character varying,
+    fix_price numeric DEFAULT 0,
+    fix_timestamp timestamp without time zone,
+    verify_code_password integer,
+    is_agent boolean DEFAULT false,
+    rejected_verification_message text DEFAULT ''::text,
+    old_id integer DEFAULT 0,
+    pending_verification boolean DEFAULT false,
+    lo numeric DEFAULT 0,
+    fix_amount numeric DEFAULT 0,
+    fix_all_amount numeric DEFAULT 0,
+    fix_months bigint DEFAULT 0,
+    reg_date timestamp without time zone,
+    is_ambasador boolean DEFAULT false,
+    fix_price2 numeric DEFAULT 0,
+    fix_timestamp2 timestamp without time zone,
+    fix_amount2 numeric DEFAULT 0,
+    fix_all_amount2 numeric DEFAULT 0,
+    fix_months2 bigint DEFAULT 0
+);
+
+
+ALTER TABLE public.users OWNER TO four;
+
+--
+-- Name: TABLE users; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON TABLE public.users IS '3';
+
+
+--
+-- Name: COLUMN users.rejected_verification_message; Type: COMMENT; Schema: public; Owner: four
+--
+
+COMMENT ON COLUMN public.users.rejected_verification_message IS '1 - pending, 2 - reject';
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: four
+--
+
+CREATE SEQUENCE public.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.users_id_seq OWNER TO four;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: four
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: bonuses id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.bonuses ALTER COLUMN id SET DEFAULT nextval('public.bonuses_id_seq'::regclass);
+
+
+--
+-- Name: bsc_chain id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.bsc_chain ALTER COLUMN id SET DEFAULT nextval('public.untitled_table_195_id_seq'::regclass);
+
+
+--
+-- Name: finances id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.finances ALTER COLUMN id SET DEFAULT nextval('public.finanses_id_seq'::regclass);
+
+
+--
+-- Name: messagestexts id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.messagestexts ALTER COLUMN id SET DEFAULT nextval('public.translationtexts_id_seq'::regclass);
+
+
+--
+-- Name: news id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.news ALTER COLUMN id SET DEFAULT nextval('public.untitled_table_194_id_seq'::regclass);
+
+
+--
+-- Name: packages id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.packages ALTER COLUMN id SET DEFAULT nextval('public.packages_id_seq'::regclass);
+
+
+--
+-- Name: qualifications id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.qualifications ALTER COLUMN id SET DEFAULT nextval('public.untitled_table_192_id_seq'::regclass);
+
+
+--
+-- Name: texts id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.texts ALTER COLUMN id SET DEFAULT nextval('public.texts_id_seq'::regclass);
+
+
+--
+-- Name: transactions id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.transactions ALTER COLUMN id SET DEFAULT nextval('public.transactions_id_seq'::regclass);
+
+
+--
+-- Name: user_data id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.user_data ALTER COLUMN id SET DEFAULT nextval('public.user_data_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Name: id_1724751394541_index; Type: INDEX; Schema: public; Owner: four
+--
+
+CREATE UNIQUE INDEX id_1724751394541_index ON public.users USING btree (id);
+
+
+--
+-- Name: packages_id_idx; Type: INDEX; Schema: public; Owner: four
+--
+
+CREATE UNIQUE INDEX packages_id_idx ON public.packages USING btree (id);
+
+
+--
+-- Name: qualifications_id_idx; Type: INDEX; Schema: public; Owner: four
+--
+
+CREATE UNIQUE INDEX qualifications_id_idx ON public.qualifications USING btree (id);
+
+
+--
+-- Name: finances finanses_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.finances
+    ADD CONSTRAINT finanses_package_id_fkey FOREIGN KEY (package_id) REFERENCES public.packages(id);
+
+
+--
+-- Name: finances finanses_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.finances
+    ADD CONSTRAINT finanses_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: transactions transactions_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.transactions
+    ADD CONSTRAINT transactions_package_id_fkey FOREIGN KEY (package_id) REFERENCES public.packages(id);
+
+
+--
+-- Name: transactions transactions_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.transactions
+    ADD CONSTRAINT transactions_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- Name: user_data user_data_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.user_data
+    ADD CONSTRAINT user_data_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: users users_qualification_fkey; Type: FK CONSTRAINT; Schema: public; Owner: four
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_qualification_fkey FOREIGN KEY (qualification) REFERENCES public.qualifications(id);
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: four
+--
+
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
